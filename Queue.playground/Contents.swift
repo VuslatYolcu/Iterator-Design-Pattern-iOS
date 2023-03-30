@@ -18,5 +18,28 @@ struct Queue<T> {
         return element
     }
     
-    
+}
+
+enum PriorityType {
+    case low
+    case medium
+    case high
+}
+
+struct Ticket {
+    var description: String
+    var priority: PriorityType
+}
+
+let ticket1 = Ticket(description: "Server Down", priority: .high)
+let ticket2 = Ticket(description: "Login is not working...", priority: .low)
+
+var queue = Queue<Ticket>()
+queue.enqueue(item: ticket1)
+queue.enqueue(item: ticket2)
+
+print(queue)
+
+for ticket in queue {
+    print(ticket)
 }
